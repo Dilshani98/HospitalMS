@@ -1,10 +1,11 @@
 
 import './App.css';
+import CreateRoomsContainer from './Containers/CreateRoomsContainer/CreateRoomsContainer';
 
 function App() {
   return (
     <div className="App">
-      <h>HI</h>
+      <CreateRoomsContainer />
     </div>
   );
 }
