@@ -1,11 +1,13 @@
 
 import './App.css';
 import CreateRoomsContainer from './Containers/CreateRoomsContainer/CreateRoomsContainer';
+import RoomsContainer from './Containers/RoomsContainer/RoomsContainer';
 
 function App() {
   return (
     <div className="App">
-      <CreateRoomsContainer />
+      {/* <CreateRoomsContainer /> */}
+      <RoomsContainer />
     </div>
   );
 }

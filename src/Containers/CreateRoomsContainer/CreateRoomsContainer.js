@@ -18,7 +18,7 @@ const CreateRoomsContainer = () => {
                             <span>Add a New Room</span>
                         </div>
                         <div className='des-c-s'>
-                            <span>This is description this is description this is description this is description this is description this is description this is description this is description this is description this is description this is description</span>
+                            <span>Hospital room design has a significant impact on patient care and recovery outcomes. Patients rely on staff to respond to emergency situations quickly, check in on them frequently, and ensure a full recovery.</span>
                         </div>
                         <div className='container create-shop' style={{ maxWidth: '800px', padding: '0px' }}>
                             <form>
