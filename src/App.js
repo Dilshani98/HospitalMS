@@ -6,6 +6,8 @@ import HomePage from './Containers/HomePage';
 import SideBar from './Components/SideBar/SideBar';
 import AllDoctors from './Components/DoctorComponent/AllDoctors';
 import NewDoctor from './Components/DoctorComponent/NewDoctor';
+import ViewNurse from './Containers/NurseContainer/ViewNurse';
+import AddNurse from './Containers/NurseContainer/AddNurse';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
 
 
 
+              <Route path="/viewnurse" element={<ViewNurse />} />
+              <Route path="/addnurse" element={<AddNurse />} />
 
             </Routes>
           </div>
