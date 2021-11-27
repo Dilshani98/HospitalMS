@@ -10,9 +10,6 @@ const CreateRoomsContainer = () => {
         <>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-md-4'>
-
-                    </div>
                     <div className='col-md-8 col-sm-12'>
                         <div className='title-c-s'>
                             <span>Add a New Room</span>

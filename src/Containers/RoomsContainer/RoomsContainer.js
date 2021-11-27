@@ -8,13 +8,13 @@ const CreateRoomsContainer = () => {
 
     return (
         <>
-           <div className="room-ttl">Rooms Details</div>
+           <center><div className="room-ttl">Rooms Details</div></center>
             <div className='row'>
                 <div className='col-md-6 col-sm-12' >
-                    <img src="https://wallpaperaccess.com/full/7176781.jpg" className='img-room' alt="room" width="750px" /><br />
+                    <img src="https://wallpaperaccess.com/full/7176781.jpg" className='img-room' alt="room" width="550px" /><br />
                 </div>
                 <div className='col-md-6 col-sm-12'>
-                    <div className='row form-group c-s-row' style={{ marginTop: "100px", width:"700px" }}>
+                    <div className='row form-group c-s-row' style={{ marginTop: "50px", width:"600px" }}>
                         <table className="table room-tbl">
                             <thead>
                                 <tr>
