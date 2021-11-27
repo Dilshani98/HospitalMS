@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './RoomsContainer.css';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import {
+    collection,
+    getDocs, 
+    addDoc, 
+    updateDoc, 
+    deleteDoc, 
+    doc
+} from 'firebase/firestore';
 import { db } from '../../Components/Config/Config'
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -18,7 +25,7 @@ const CreateRoomsContainer = () => {
     const getRooms = async () => {
         const data = await getDocs(roomsCollectionRef);
         setRooms(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        console.log(rooms);
+        // console.log(rooms);
     };
 
     const deleteRooms = async (id) => {
@@ -28,6 +35,7 @@ const CreateRoomsContainer = () => {
         window.location.reload(false);
 
     };
+
 
 
     return (
@@ -61,15 +69,13 @@ const CreateRoomsContainer = () => {
                                             <td>{room.roomSize}</td>
                                             <td>{room.rate}</td>
                                             <td>{room.AC}</td>
-                                            <td>
-                                                {/* <Link to="/updateuser">     */}
-                                                <button className='col c-s-btn' style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Edit</button>
-                                                {/* </Link> */}
+                                            <td>   
+                                                <button className='col c-s-btn'  style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Edit</button>
                                             </td>
                                             <td>
-                                                <button 
-                                                    className='col c-s-btn' 
-                                                    onClick={() => deleteRooms(room.id)} 
+                                                <button
+                                                    className='col c-s-btn'
+                                                    onClick={() => deleteRooms(room.id)}
                                                     style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}
                                                 >Delete</button>
                                             </td>
