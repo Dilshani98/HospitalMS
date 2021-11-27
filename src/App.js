@@ -1,10 +1,22 @@
 
+import { BrowserRouter, Route, Routes, Switch } from 'react-router-dom';
 import './App.css';
+import NavBar from './Components/NavBarComponent/NavBar';
+import HomePage from './Containers/HomePage';
+
 
 function App() {
   return (
-    <div className="App">
-      <h>HI</h>
+    <div>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+
+
+
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
