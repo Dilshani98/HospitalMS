@@ -6,6 +6,8 @@ import HomePage from './Containers/HomePage';
 import SideBar from './Components/SideBar/SideBar';
 import CreateRoomsContainer from './Containers/CreateRoomsContainer/CreateRoomsContainer';
 import RoomsContainer from './Containers/RoomsContainer/RoomsContainer';
+import ViewNurse from './Containers/NurseContainer/ViewNurse';
+import AddNurse from './Containers/NurseContainer/AddNurse';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
               <Route path="/addroom" element={<CreateRoomsContainer />} />
               <Route path="/rooms" element={<RoomsContainer />} />
 
+              <Route path="/viewnurse" element={<ViewNurse />} />
+              <Route path="/addnurse" element={<AddNurse />} />
 
             </Routes>
           </div>

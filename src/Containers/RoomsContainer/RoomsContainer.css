@@ -21,3 +21,20 @@
     margin-top: 50px;
     font-weight: bold;
 }
+
+.c-s-btn {
+    border-radius: 5px;
+    /* width: auto; */
+    height: 35px;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    outline: none;
+    align-content: center;
+    margin-bottom: 20px;
+    /* margin-left: 680px; */
+    /* margin-right: 12px; */
+}

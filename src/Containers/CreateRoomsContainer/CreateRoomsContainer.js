@@ -61,19 +61,10 @@ const CreateRoomsContainer = () => {
                                         <span className='c-s-feilds'>A/C: </span>
                                     </div>
                                     <div className='col-md-9 col-sm-12 c-s-cols'>
-                                        {/* <input className="form-control" type="text" id="A/C" required /> */}
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="A/C1"/>
-                                            <label class="form-check-label" for="A/C1">
-                                                A/C
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="A/C2" checked />
-                                            <label class="form-check-label" for="A/C2">
-                                                Non A/C
-                                            </label>
-                                        </div>
+                                        <select className="form-control" id="A/C" required>
+                                            <option>Non A/C</option>
+                                            <option>A/C</option>
+                                        </select>
                                     </div>
                                 </div>
 
