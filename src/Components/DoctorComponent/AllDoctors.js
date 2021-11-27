@@ -193,13 +193,13 @@ const AllDocors = () => {
                                                 <div className="row col-md-6 col-sm-12 text-muted bg-transparent  pt-1 pb-1 pr-2 d-flex justify-content-end">
                                                     <div className="row  p-1 ">
                                                         <div >
-                                                            <button className="bg-light text-dark" onClick={() => seteditingdoctor('')}>Cancel</button>
+                                                            <button className="btn-primary " onClick={() => seteditingdoctor('')}>Cancel</button>
 
 
                                                         </div>&nbsp;
                                                         <div className=" userTile-save-button-bar  ">
 
-                                                            <button buttonColour='dark-blue' onClick={editDoctor}>Save</button>
+                                                            <button className='btn-primary ' onClick={editDoctor}>Save</button>
 
                                                         </div>
                                                     </div>

@@ -12,7 +12,7 @@ function SideBar() {
           <p className="Title" style={{ color: 'white', fontSize: '25px', fontFamily: 'Trebuchet MS' }}>Hospital  Management System</p>
         </div>
       </NavLink>
-      <ul className="SidebarList">
+      <ul className="SidebarList ">
         {MenuItem.map((val, key) => {
           return (
             <li
