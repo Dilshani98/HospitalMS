@@ -8,6 +8,7 @@ import CreateRoomsContainer from './Containers/CreateRoomsContainer/CreateRoomsC
 import RoomsContainer from './Containers/RoomsContainer/RoomsContainer';
 import ViewNurse from './Containers/NurseContainer/ViewNurse';
 import AddNurse from './Containers/NurseContainer/AddNurse';
+import Patients from './Containers/PatientsContainer/PatientsContainer'
 
 
 function App() {
@@ -16,15 +17,15 @@ function App() {
       <BrowserRouter>
         {/*   <NavBar /> */}
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-4">
             <SideBar />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-8">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/addroom" element={<CreateRoomsContainer />} />
               <Route path="/rooms" element={<RoomsContainer />} />
-
+              <Route path="/patients" element={<Patients />} />
               <Route path="/viewnurse" element={<ViewNurse />} />
               <Route path="/addnurse" element={<AddNurse />} />
 

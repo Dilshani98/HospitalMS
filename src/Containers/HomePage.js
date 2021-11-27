@@ -11,8 +11,7 @@ import { HiDocumentReport } from 'react-icons/hi'
 const HomePage = () => {
     return (
         <div className="container px-0">
-
-            <div class="col-md-10 pt-5">
+            <div class="col-md-10 pt-5 bg">
                 <div class="row ">
                     <div class="col-xl-4 col-lg-6">
                         <div class="card l-bg-cherry border-0">
@@ -24,7 +23,7 @@ const HomePage = () => {
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            3,243
+                                            3,243k
                                         </h2>
                                     </div>
 
@@ -43,7 +42,7 @@ const HomePage = () => {
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            15.07k
+                                            157
                                         </h2>
                                     </div>
 
@@ -81,7 +80,7 @@ const HomePage = () => {
                                 <div class="row align-items-center mb-2 d-flex">
                                     <div class="col-8">
                                         <h2 class="d-flex align-items-center mb-0">
-                                            $11.61k
+                                            11.61k
                                         </h2>
                                     </div>
 
