@@ -58,23 +58,25 @@ const HomePage = () => {
                     </div>
 
                     <div class="col-xl-4 col-lg-6">
-                        <div class="card l-bg-green-dark border-0">
-                            <div class="card-statistic-3 p-4">
-                                <div class="card-icon card-icon-large"><i class="fas"><FaUserNurse /></i></div>
-                                <div class="mb-4">
-                                    <h5 class="card-title mb-0">Nurses</h5>
-                                </div>
-                                <div class="row align-items-center mb-2 d-flex">
-                                    <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
-                                            578
-                                        </h2>
+                        <NavLink className="card-nav" to="/viewnurse">
+                            <div class="card l-bg-green-dark border-0">
+                                <div class="card-statistic-3 p-4">
+                                    <div class="card-icon card-icon-large"><i class="fas"><FaUserNurse /></i></div>
+                                    <div class="mb-4">
+                                        <h5 class="card-title mb-0">Nurses</h5>
+                                    </div>
+                                    <div class="row align-items-center mb-2 d-flex">
+                                        <div class="col-8">
+                                            <h2 class="d-flex align-items-center mb-0">
+                                                578
+                                            </h2>
+                                        </div>
+
                                     </div>
 
                                 </div>
-
                             </div>
-                        </div>
+                        </NavLink>
                     </div>
                     <div class="col-xl-4 col-lg-6">
                         <div class="card l-bg-orange-dark border-0">
@@ -96,23 +98,25 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6">
-                        <div class="card l-bg-new1-dark border-0">
-                            <div class="card-statistic-3 p-4">
-                                <div class="card-icon card-icon-large"><i class="fas"><MdBedroomChild /></i></div>
-                                <div class="mb-4">
-                                    <h5 class="card-title mb-0">Rooms</h5>
-                                </div>
-                                <div class="row align-items-center mb-2 d-flex">
-                                    <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
-                                            578
-                                        </h2>
+                        <NavLink className="card-nav" to="/rooms">
+                            <div class="card l-bg-new1-dark border-0">
+                                <div class="card-statistic-3 p-4">
+                                    <div class="card-icon card-icon-large"><i class="fas"><MdBedroomChild /></i></div>
+                                    <div class="mb-4">
+                                        <h5 class="card-title mb-0">Rooms</h5>
+                                    </div>
+                                    <div class="row align-items-center mb-2 d-flex">
+                                        <div class="col-8">
+                                            <h2 class="d-flex align-items-center mb-0">
+                                                578
+                                            </h2>
+                                        </div>
+
                                     </div>
 
                                 </div>
-
                             </div>
-                        </div>
+                        </NavLink>
                     </div>
                     <div class="col-xl-4 col-lg-6">
                         <div class="card l-bg-new2-dark border-0">
