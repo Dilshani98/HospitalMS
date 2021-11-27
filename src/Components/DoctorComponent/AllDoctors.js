@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { FaStethoscope, FaUserNurse } from 'react-icons/fa'
+import { FaStethoscope } from 'react-icons/fa'
 import { BsFillPlusCircleFill } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, setDoc } from 'firebase/firestore';

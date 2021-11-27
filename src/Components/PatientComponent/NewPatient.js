@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from "../Config/Config"
+import { NavLink } from 'react-router-dom'
+
 
 const NewPatient = () => {
     const patientCollectionRef = collection(db, "patients");
@@ -32,6 +34,9 @@ const NewPatient = () => {
     return (
         <div className="container">
             <h1 className="display-5 text-center">Add a New Patient</h1>
+            {(submitted) && <div class="alert alert-primary" role="alert">
+                The details of the new patient were added successfully!.
+            </div>}
             <form>
                 <div class="form-group pb-4">
                     <label >First Name</label>
@@ -72,11 +77,13 @@ const NewPatient = () => {
 
 
                 <button type="submit" class="btn btn-primary" onClick={createPatient}>Submit</button>
+                <NavLink to="/patients">
+                    <button type="button" class="btn btn-secondary"> Go Back</button>
+                </NavLink>
+
             </form>
             <br />
-            {(submitted) && <div class="alert alert-primary" role="alert">
-                The details of the new patient were added successfully!.
-            </div>}
+
         </div>
 
     );
