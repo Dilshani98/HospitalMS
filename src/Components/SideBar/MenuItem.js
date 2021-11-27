@@ -27,7 +27,7 @@ export const MenuItem =[
   {
     title: "Rooms",
     icon:<FontAwesomeIcon icon={faProcedures} />,
-    path: "/Rooms"
+    path: "/rooms"
   },
   {
     title: "Reports",
