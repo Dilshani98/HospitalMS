@@ -6,6 +6,8 @@ import HomePage from './Containers/HomePage';
 import SideBar from './Components/SideBar/SideBar';
 import AllDoctors from './Components/DoctorComponent/AllDoctors';
 import NewDoctor from './Components/DoctorComponent/NewDoctor';
+import CreateRoomsContainer from './Containers/CreateRoomsContainer/CreateRoomsContainer';
+import RoomsContainer from './Containers/RoomsContainer/RoomsContainer';
 import ViewNurse from './Containers/NurseContainer/ViewNurse';
 import AddNurse from './Containers/NurseContainer/AddNurse';
 
@@ -26,6 +28,8 @@ function App() {
               <Route path="/new-doctor" exact element={<NewDoctor />} />
 
 
+              <Route path="/addroom" element={<CreateRoomsContainer />} />
+              <Route path="/rooms" element={<RoomsContainer />} />
 
               <Route path="/viewnurse" element={<ViewNurse />} />
               <Route path="/addnurse" element={<AddNurse />} />
