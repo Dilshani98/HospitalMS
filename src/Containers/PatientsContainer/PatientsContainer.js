@@ -20,13 +20,13 @@ const Patients = () => {
                     <div className='col-md-6 col-sm-12'>
                         <div class="d-flex justify-content-between">
                             <NavLink to="/all-patients">
-                                <button type="button" class="btn btn-info btn-lg"><HiDocumentReport /> View Patients Details</button>
+                                <button type="button" class="btn btn-info btn-patient btn-lg"><HiDocumentReport /> View Patients Details</button>
                             </NavLink>
                             <br></br><br></br><br></br>
                         </div>
                         <div class="d-flex justify-content-between">
                             <NavLink to="/new-patient">
-                                <button type="button" class="btn btn-info btn-lg"><BsFillPlusCircleFill /> Add New Patient</button>
+                                <button type="button" class="btn btn-info btn-patient btn-lg"><BsFillPlusCircleFill /> Add New Patient</button>
                             </NavLink>
                         </div>
 
