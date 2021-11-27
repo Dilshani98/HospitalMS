@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './RoomsContainer.css';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import { db } from '../../Components/Config/Config'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateRoomsContainer = () => {
 
@@ -25,6 +25,7 @@ const CreateRoomsContainer = () => {
         const roomsDoc = doc(db, "rooms", id);
 
         await deleteDoc(roomsDoc);
+        window.location.reload(false);
 
     };
 
@@ -75,19 +76,6 @@ const CreateRoomsContainer = () => {
                                         </tr>
                                     );
                                 })}
-
-
-
-                                {/* <tr>
-                                    <th scope="row">512A</th>
-                                    <td>5</td>
-                                    <td>100 x 100</td>
-                                    <td>4/5</td>
-                                    <td>yes</td>
-                                    <td><button className='col c-s-btn' style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Edit</button></td>
-                                    <td><button className='col c-s-btn' style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Delete</button></td>
-                                </tr> */}
-
                             </tbody>
                         </table>
                     </div>
