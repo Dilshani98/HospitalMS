@@ -64,7 +64,7 @@ const AllPatients = () => {
         <>
             <div className="container ">
                 <div className="row">
-                    <h1 className="display-3 text-center">Dtails of Patients</h1>
+                    <h1 className="display-3 text-center">Details of Patients</h1>
                     <hr />
                     <table className="table table-striped mt-5">
                         <thead className="table-dark">
