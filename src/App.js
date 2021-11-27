@@ -6,8 +6,8 @@ import RoomsContainer from './Containers/RoomsContainer/RoomsContainer';
 function App() {
   return (
     <div className="App">
-      {/* <CreateRoomsContainer /> */}
-      <RoomsContainer />
+      <CreateRoomsContainer />
+      {/* <RoomsContainer /> */}
     </div>
   );
 }
