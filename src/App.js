@@ -5,7 +5,6 @@ import NavBar from './Components/NavBarComponent/NavBar';
 import HomePage from './Containers/HomePage';
 import SideBar from './Components/SideBar/SideBar';
 import ViewNurse from './Containers/NurseContainer/ViewNurse';
-import AddNurse from './Containers/NurseContainer/AddNurse';
 
 
 function App() {

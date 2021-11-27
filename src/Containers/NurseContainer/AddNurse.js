@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import { collection , getDocs, addDoc, updateDoc, deleteDoc, doc} from 'firebase/firestore';
 import {db} from '../../Components/Config/Config'
 
