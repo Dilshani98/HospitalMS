@@ -9,7 +9,7 @@ const CreateRoomsContainer = () => {
     const navigate = useNavigate();
 
     const [roomNo, setRoomNo] = useState("");
-    const [bedsCount, setBedsCount] = useState("");
+    const [bedsCount, setBedsCount] = useState(0);
     const [roomSize, setRoomSize] = useState("");
     const [rate, setRate] = useState("");
     const [AC, setAC] = useState("");

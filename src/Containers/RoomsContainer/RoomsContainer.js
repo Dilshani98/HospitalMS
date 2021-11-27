@@ -1,32 +1,77 @@
 import React, { useState, useEffect } from 'react';
 import './RoomsContainer.css';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase/firestore';
+import {
+    collection,
+    getDocs,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+    setDoc
+} from 'firebase/firestore';
 import { db } from '../../Components/Config/Config'
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateRoomsContainer = () => {
 
     const roomsCollectionRef = collection(db, "rooms");
 
     const [rooms, setRooms] = useState([]);
+    const [refresh, setRefresh] = useState(false);
+    const [editingRoom, setEditingRoom] = useState('');
+
+    const [roomNo, setRoomNo] = useState("");
+    const [bedsCount, setBedsCount] = useState(0);
+    const [roomSize, setRoomSize] = useState("");
+    const [rate, setRate] = useState("");
+    const [AC, setAC] = useState("");
+    const [editingRoomId, setEditingRoomId] = useState("")
+
+
+    const editRoom = (room) => {
+        console.log(room);
+        setEditingRoom(room);
+        setRoomNo(room.roomNo);
+        setBedsCount(room.bedsCount);
+        setRoomSize(room.roomSize);
+        setRate(room.rate);
+        setAC(room.AC);
+        setEditingRoomId(room.id)
+    }
+
 
     useEffect(() => {
         getRooms();
 
-    }, []);
+    }, [refresh]);
 
     const getRooms = async () => {
         const data = await getDocs(roomsCollectionRef);
         setRooms(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        console.log(rooms);
+        // console.log(rooms);
     };
 
     const deleteRooms = async (id) => {
         const roomsDoc = doc(db, "rooms", id);
 
         await deleteDoc(roomsDoc);
-
+        setRefresh(!refresh);
     };
+
+    const editSave = async (e) => {
+        e.preventDefault();
+
+        await setDoc(doc(db, "rooms", editingRoomId), {
+            roomNo: roomNo,
+            bedsCount: bedsCount,
+            roomSize: roomSize,
+            rate: rate,
+            AC: AC
+        });
+
+        setRefresh(!refresh);
+    };
+
 
 
     return (
@@ -51,44 +96,92 @@ const CreateRoomsContainer = () => {
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                {rooms.map((room) => {
-                                    return (
+
+                            {rooms.map((room) => {
+                                return (
+                                    <tbody key={room.id}>
                                         <tr>
                                             <td scope="row">{room.roomNo}</td>
-                                            <td>{room.bedCount}</td>
+                                            <td>{room.bedsCount}</td>
                                             <td>{room.roomSize}</td>
                                             <td>{room.rate}</td>
                                             <td>{room.AC}</td>
                                             <td>
-                                                {/* <Link to="/updateuser">     */}
-                                                <button className='col c-s-btn' style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Edit</button>
-                                                {/* </Link> */}
+                                                <button
+                                                    className='col c-s-btn'
+                                                    onClick={() => editRoom(room)}
+                                                    style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>
+                                                    Edit
+                                                </button>
                                             </td>
                                             <td>
-                                                <button 
-                                                    className='col c-s-btn' 
-                                                    onClick={() => deleteRooms(room.id)} 
-                                                    style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}
-                                                >Delete</button>
+                                                <button
+                                                    className='col c-s-btn'
+                                                    onClick={() => deleteRooms(room.id)}
+                                                    style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>
+                                                    Delete
+                                                </button>
                                             </td>
                                         </tr>
-                                    );
-                                })}
+
+                                        {(editingRoom === room) &&
+                                            <tr>
+                                                <td scope="row">
+                                                    <input
+                                                        type="text"
+                                                        id="roomNo"
+                                                        value={roomNo}
+                                                        onChange={(e) => { setRoomNo(e.target.value) }}
+                                                        style={{ width: "80px" }} required />
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        type="number"
+                                                        id="bedsCount"
+                                                        value={bedsCount}
+                                                        onChange={(e) => { setBedsCount(e.target.value) }}
+                                                        style={{ width: "80px" }} required />
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        type="text"
+                                                        id="roomSize"
+                                                        value={roomSize}
+                                                        onChange={(e) => { setRoomSize(e.target.value) }}
+                                                        style={{ width: "80px" }} required />
+                                                </td>
+                                                <td>
+                                                    <input
+                                                        type="text"
+                                                        id="rate"
+                                                        value={rate}
+                                                        onChange={(e) => { setRate(e.target.value) }}
+                                                        style={{ width: "80px" }} required /></td>
+                                                <td>
+                                                    <select
+                                                        id="AC"
+                                                        value={AC}
+                                                        onChange={(e) => { setAC(e.target.value) }}
+                                                        style={{ width: "80px" }} required>
+                                                        <option>Select A/C or Non A/C</option>
+                                                        <option>Non A/C</option>
+                                                        <option>A/C</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <button className='c-s-btn' style={{ margin: 0, backgroundColor: "#25523b" }} onClick={editSave}>save</button>
+                                                </td>
+                                                <td>
+                                                    <button className='c-s-btn' style={{ margin: 0, backgroundColor: "#8e1600" }} onClick={() => setEditingRoom('')}>cancel</button>
+                                                </td>
+                                            </tr>}
 
 
 
-                                {/* <tr>
-                                    <th scope="row">512A</th>
-                                    <td>5</td>
-                                    <td>100 x 100</td>
-                                    <td>4/5</td>
-                                    <td>yes</td>
-                                    <td><button className='col c-s-btn' style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Edit</button></td>
-                                    <td><button className='col c-s-btn' style={{ paddingLeft: "0", marginLeft: "0", width: "60px" }}>Delete</button></td>
-                                </tr> */}
+                                    </tbody>
+                                );
+                            })}
 
-                            </tbody>
                         </table>
                     </div>
 
@@ -97,8 +190,8 @@ const CreateRoomsContainer = () => {
 
 
             </div>
-            <div className='row lst-rw'>
-                <Link to="/addroom"><button className='col c-s-btn' style={{ width: "600px" }}>AddNewRoom</button></Link>
+            <div className='row lst-rw' style={{ textAlign: "center" }}>
+                <Link to="/addroom"><button className='col c-s-btn' >AddNewRoom</button></Link>
             </div>
         </>
     )
