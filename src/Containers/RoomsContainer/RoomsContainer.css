@@ -1,0 +1,41 @@
+.img-room{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+
+
+.img-room{
+    background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5% auto;
+  padding:20px;
+  /* border: 1px solid #7c6e7f; */
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px #7c6e7f;
+  position: relative;
+}
+
+.room-ttl{
+    font-size: 50px;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+.c-s-btn {
+    border-radius: 5px;
+    /* width: auto; */
+    height: 35px;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    outline: none;
+    align-content: center;
+    margin-bottom: 20px;
+    /* margin-left: 680px; */
+    /* margin-right: 12px; */
+}
+
