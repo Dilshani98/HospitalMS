@@ -42,7 +42,7 @@ function App() {
               <Route path="/new-patient" element={<NewPatient />} />
               <Route path="/all-patients" element={<AllPatient />} />
 
-              <Route path="/viewnurse" element={<ViewNurse />} />
+              <Route path="/Nurses" element={<ViewNurse />} />
               <Route path="/addnurse" element={<AddNurse />} />
 
             </Routes>

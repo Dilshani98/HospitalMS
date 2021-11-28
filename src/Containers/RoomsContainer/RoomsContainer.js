@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './RoomsContainer.css';
+import { FaBed } from 'react-icons/fa';
 import {
     collection,
     getDocs,
@@ -76,11 +77,11 @@ const CreateRoomsContainer = () => {
 
     return (
         <>
-            <center><div className="room-ttl">Rooms Details</div></center>
+            <center><div className="room-ttl"><FaBed style={{marginRight:"20px"}}/>Details of Rooms</div></center>
 
             <div className='row'>
                 <div className='col-md-6 col-sm-12' style={{ margin: "auto" }}>
-                    <img src="https://wallpaperaccess.com/full/7176781.jpg" className='img-room' alt="room" width="550px" /><br />
+                    <img src="https://wallpaperaccess.com/full/7176781.jpg" className='img-room' alt="room" width="550px" style={{marginLeft:"60px"}}/><br />
                 </div>
                 <div className='col-md-6 col-sm-12'>
                     <div className='row form-group c-s-row' style={{ marginTop: "50px", width: "600px" }}>
