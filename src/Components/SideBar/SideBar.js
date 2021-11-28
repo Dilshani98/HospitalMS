@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Appointment from "../../Containers/AppointmentDashboard/Appointment";
+import './SideBar.css';
 
 function SideBar() {
   return (
@@ -45,17 +46,7 @@ function SideBar() {
             </ul>
           </div>
         </div>
-        <div className="col-md-7">
-          <div className="container  row"></div>
-          <BrowserRouter>
-          <Routes>
-          <Route
-            path="/Appointments"
-            component={Appointment}
-          ></Route>
-          </Routes>
-          </BrowserRouter>
-        </div>
+        
       </div>
     </div>
   );
