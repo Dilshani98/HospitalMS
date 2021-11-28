@@ -144,23 +144,25 @@ const HomePage = () => {
                         </NavLink>
                     </div>
                     <div class="col-xl-4 col-lg-6">
-                        <div class="card l-bg-orange-dark border-0">
-                            <div class="card-statistic-3 p-4">
-                                <div class="card-icon card-icon-large"><i class="fas"><BsPeopleFill /></i></div>
-                                <div class="mb-4">
-                                    <h5 class="card-title mb-0">Patients</h5>
-                                </div>
-                                <div class="row align-items-center mb-2 d-flex">
-                                    <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
-                                            {countPatients}
-                                        </h2>
+                        <NavLink className="card-nav" to="/patients">
+                            <div class="card l-bg-orange-dark border-0">
+                                <div class="card-statistic-3 p-4">
+                                    <div class="card-icon card-icon-large"><i class="fas"><BsPeopleFill /></i></div>
+                                    <div class="mb-4">
+                                        <h5 class="card-title mb-0">Patients</h5>
+                                    </div>
+                                    <div class="row align-items-center mb-2 d-flex">
+                                        <div class="col-8">
+                                            <h2 class="d-flex align-items-center mb-0">
+                                                {countPatients}
+                                            </h2>
+                                        </div>
+
                                     </div>
 
                                 </div>
-
                             </div>
-                        </div>
+                        </NavLink>
                     </div>
                     <div class="col-xl-4 col-lg-6">
                         <NavLink className="card-nav" to="/rooms">
@@ -184,23 +186,25 @@ const HomePage = () => {
                         </NavLink>
                     </div>
                     <div class="col-xl-4 col-lg-6">
-                        <div class="card l-bg-new2-dark border-0">
-                            <div class="card-statistic-3 p-4">
-                                <div class="card-icon card-icon-large"><i class="fas"><HiDocumentReport /></i></div>
-                                <div class="mb-4">
-                                    <h5 class="card-title mb-0">Reports</h5>
-                                </div>
-                                <div class="row align-items-center mb-2 d-flex">
-                                    <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
-                                            {countReports}
-                                        </h2>
+                        <NavLink className="card-nav" to="/reports">
+                            <div class="card l-bg-new2-dark border-0">
+                                <div class="card-statistic-3 p-4">
+                                    <div class="card-icon card-icon-large"><i class="fas"><HiDocumentReport /></i></div>
+                                    <div class="mb-4">
+                                        <h5 class="card-title mb-0">Reports</h5>
+                                    </div>
+                                    <div class="row align-items-center mb-2 d-flex">
+                                        <div class="col-8">
+                                            <h2 class="d-flex align-items-center mb-0">
+                                                {countReports}
+                                            </h2>
+                                        </div>
+
                                     </div>
 
                                 </div>
-
                             </div>
-                        </div>
+                        </NavLink>
                     </div>
                 </div>
             </div>
