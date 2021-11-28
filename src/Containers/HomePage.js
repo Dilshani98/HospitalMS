@@ -79,24 +79,24 @@ const HomePage = () => {
             <div class="col-md-12 pt-5">
                 <div class="row ">
                     <div class="col-xl-4 col-lg-6 ">
-                    <NavLink className="card-nav" to="/Appointments">
-                        <div class="card l-bg-cherry border-0">
-                            <div class="card-statistic-3 p-4">
-                                <div class="card-icon card-icon-large"><i class="fas"><BsFillBookmarkFill /></i></div>
-                                <div class="mb-4">
-                                    <h5 class="card-title mb-0">Appointements</h5>
-                                </div>
-                                <div class="row align-items-center mb-2 d-flex">
-                                    <div class="col-8">
-                                        <h2 class="d-flex align-items-center mb-0">
-                                            {countAppointments}
-                                        </h2>
+                        <NavLink className="card-nav" to="/Appointments">
+                            <div class="card l-bg-cherry border-0">
+                                <div class="card-statistic-3 p-4">
+                                    <div class="card-icon card-icon-large"><i class="fas"><BsFillBookmarkFill /></i></div>
+                                    <div class="mb-4">
+                                        <h5 class="card-title mb-0">Appointements</h5>
+                                    </div>
+                                    <div class="row align-items-center mb-2 d-flex">
+                                        <div class="col-8">
+                                            <h2 class="d-flex align-items-center mb-0">
+                                                {countAppointments}
+                                            </h2>
+                                        </div>
+
                                     </div>
 
                                 </div>
-
                             </div>
-                        </div>
                         </NavLink>
                     </div>
 
@@ -123,7 +123,7 @@ const HomePage = () => {
                     </div>
 
                     <div class="col-xl-4 col-lg-6">
-                        <NavLink className="card-nav" to="/viewnurse">
+                        <NavLink className="card-nav" to="/Nurses">
                             <div class="card l-bg-green-dark border-0">
                                 <div class="card-statistic-3 p-4">
                                     <div class="card-icon card-icon-large"><i class="fas"><FaUserNurse /></i></div>
