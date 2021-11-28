@@ -1,0 +1,92 @@
+
+.title-c-s{
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    margin: 30px 0 15px 0;
+    max-width: 800px;
+    font-family: 'Trebuchet MS';
+}
+
+.des-c-s{
+    margin: 0 0px 25px 0px;
+    max-width: 800px;
+}
+
+.create-shop{
+    max-width:800px;
+    min-height: 350px;
+    /* background-color: rgba(255,170,82,0.2); */
+    margin: 0 20px 0 20px;  
+    position: absolute;
+}
+
+
+.c-s-row{
+    margin-bottom: 20px;
+}
+
+.c-s-cols{
+    text-align: left;
+}
+
+.c-s-feilds{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.c-s-btn {
+    border-radius: 5px;
+    width: auto;
+    height: 35px;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    outline: none;
+    align-content: center;
+    margin-bottom: 20px;
+    margin-left: 680px;
+    margin-right: 12px;
+}
+
+.form-control {
+    box-shadow: none !important;
+    outline: none !important;
+    /* border: 1px solid #ced4da; */
+
+}
+
+
+@media screen and (max-width:768px){
+    .c-s-btn {
+        border-radius: 5px;
+        width: auto ;
+        height: 35px;
+        background-color: rgb(15, 15, 15);
+        border: none;
+        text-align: center;
+        font-size: 16px;
+        color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        outline: none;
+        align-content: center;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        /* margin-right: 12px; */
+    }
+
+    .des-c-s{
+        margin: 0 10px 25px 10px;
+        max-width: 800px;
+    }
+
+    .c-s-cols{
+        margin: 0 100px 0 10px;
+        /* width: 360px; */
+    }
+}
+

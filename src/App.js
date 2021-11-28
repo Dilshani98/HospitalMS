@@ -13,6 +13,8 @@ import AddNurse from './Containers/NurseContainer/AddNurse';
 import Patients from './Containers/PatientsContainer/PatientsContainer'
 import NewPatient from './Components/PatientComponent/NewPatient'
 import AllPatient from './Components/PatientComponent/AllPatients'
+import Appointment from './Containers/AppointmentDashboard/Appointment';
+import CreateAppointment from './Components/CreateAppointment/CreateAppointment';
 
 
 function App() {
@@ -27,6 +29,9 @@ function App() {
           <div className="col-md-10 col-sm-11">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/Appointments" element={<Appointment />} />
+              <Route path="/CreateAppointment" element={<CreateAppointment />} />
+              
               <Route path="/doctors" exact element={<AllDoctors />} />
               <Route path="/new-doctor" exact element={<NewDoctor />} />
 

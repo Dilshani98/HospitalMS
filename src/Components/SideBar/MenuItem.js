@@ -17,7 +17,7 @@ export const MenuItem = [
   {
     title: "Nurses",
     icon: <FontAwesomeIcon icon={faUserNurse} />,
-    path: "/Nurses"
+    path: "/viewnurse"
   },
   {
     title: "Patients",

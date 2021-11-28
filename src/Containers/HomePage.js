@@ -79,6 +79,7 @@ const HomePage = () => {
             <div class="col-md-12 pt-5">
                 <div class="row ">
                     <div class="col-xl-4 col-lg-6 ">
+                    <NavLink className="card-nav" to="/Appointments">
                         <div class="card l-bg-cherry border-0">
                             <div class="card-statistic-3 p-4">
                                 <div class="card-icon card-icon-large"><i class="fas"><BsFillBookmarkFill /></i></div>
@@ -96,6 +97,7 @@ const HomePage = () => {
 
                             </div>
                         </div>
+                        </NavLink>
                     </div>
 
                     <div class="col-xl-4 col-lg-6">
