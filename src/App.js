@@ -40,11 +40,15 @@ function App() {
               <Route path="/new-patient" element={<NewPatient />} />
               <Route path="/all-patients" element={<AllPatient />} />
 
+<<<<<<< HEAD
               <Route path="/reports" element={<Reports />} />
               <Route path="/new-report" element={<NewReport />} />
               <Route path="/find-report" element={<FindReport />} />
 
               <Route path="/viewnurse" element={<ViewNurse />} />
+=======
+              <Route path="/Nurses" element={<ViewNurse />} />
+>>>>>>> origin
               <Route path="/addnurse" element={<AddNurse />} />
 
             </Routes>
