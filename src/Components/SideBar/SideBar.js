@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import { MenuItem } from "./MenuItem";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandHoldingMedical, faXRay } from "@fortawesome/free-solid-svg-icons";
-import './SideBar.css'
+import {
+  faHandHoldingMedical,
+  faXRay,
+} from "@fortawesome/free-solid-svg-icons";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Appointment from "../../Containers/AppointmentDashboard/Appointment";
+import './SideBar.css';
+
 function SideBar() {
   return (
     <div className="SideBar">
@@ -17,7 +23,7 @@ function SideBar() {
           return (
             <li
               key={key}
-              className="row"
+              className="rowItem"
             >
               <a className="nav-link" href={val.path}>
                 <div id="icon" >{val.icon}</div>

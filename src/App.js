@@ -13,9 +13,13 @@ import AddNurse from './Containers/NurseContainer/AddNurse';
 import Patients from './Containers/PatientsContainer/PatientsContainer'
 import NewPatient from './Components/PatientComponent/NewPatient'
 import AllPatient from './Components/PatientComponent/AllPatients'
+
 import Reports from './Containers/ReportsContainer/ReportsContainer';
 import NewReport from './Components/ReportComponent/NewReport';
 import FindReport from './Components/ReportComponent/FindReport';
+import Appointment from './Containers/AppointmentDashboard/Appointment';
+import CreateAppointment from './Components/CreateAppointment/CreateAppointment';
+
 
 
 function App() {
@@ -30,6 +34,9 @@ function App() {
           <div className="col-md-10 col-sm-11">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/Appointments" element={<Appointment />} />
+              <Route path="/CreateAppointment" element={<CreateAppointment />} />
+              
               <Route path="/doctors" exact element={<AllDoctors />} />
               <Route path="/new-doctor" exact element={<NewDoctor />} />
 
@@ -40,15 +47,13 @@ function App() {
               <Route path="/new-patient" element={<NewPatient />} />
               <Route path="/all-patients" element={<AllPatient />} />
 
-<<<<<<< HEAD
+
               <Route path="/reports" element={<Reports />} />
               <Route path="/new-report" element={<NewReport />} />
               <Route path="/find-report" element={<FindReport />} />
 
               <Route path="/viewnurse" element={<ViewNurse />} />
-=======
               <Route path="/Nurses" element={<ViewNurse />} />
->>>>>>> origin
               <Route path="/addnurse" element={<AddNurse />} />
 
             </Routes>
