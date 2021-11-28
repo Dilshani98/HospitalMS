@@ -80,8 +80,8 @@ const CreateRoomsContainer = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h1 className="display-5 text-center">Add a New Appointment</h1>
+    <div className="container" style={{marginTop:'50px',width:'600px'}}>
+      <h1 className="display-5 text-center"  style={{ fontFamily: "Trebuchet MS", fontSize: "30px" }}>Add a New Appointment</h1>
       {submitted && (
         <div class="alert alert-primary" role="alert">
           The details of the new Appointment were added successfully!.
@@ -151,6 +151,9 @@ const CreateRoomsContainer = () => {
         </div>
 
         <button type="submit" class="btn btn-primary" onClick={AddAppointments}>Submit</button>
+                <NavLink to="/Appointments">
+                    <button type="button" class="btn btn-secondary" style={{marginLeft:'10px'}}>Back</button>
+                </NavLink>
       </form>
       <br />
     </div>

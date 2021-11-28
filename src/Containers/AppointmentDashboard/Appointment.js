@@ -20,22 +20,22 @@ import {
 import {
   doc,
   collection,
-  getDoc,
+  getDocs,
   onSnapshot,
   deleteDoc,
   updateDoc,
   getFirestore,
   query,
-  where
+  where,
 } from "firebase/firestore";
 
 const Appointment = () => {
   const [appointments, setAppointments] = useState([]);
-  const [doctorName, setDoctorname] = useState([]);
+  // const [doctorId, setDoctorId] = useState([]);
+  // const [doctorName, setDoctorName] = useState([]);
 
   useEffect(() => {
     const data = () => {
-
       onSnapshot(collection(getFirestore(), "appointments"), (snapshot) => {
         // realtime update
         setAppointments(
@@ -44,27 +44,7 @@ const Appointment = () => {
       });
     };
     data();
-    
   }, []);
-
-  useEffect(() => {
-    getDoctorName();
-  })
-
-  const getDoctorName = async () => {
-    // const docRef = doc(getFirestore, "doctors", item);
-    // const docSnap = await getDoc(docRef);
-
-    // if (docSnap.exists()) {
-    //  setDoctorname(docSnap.data().firstName);
-    // } else {
-    //   // doc.data() will be undefined in this case
-    //   console.log("No such document!");
-    // }
-    console.log(doctorName)
-
-
-  };
 
   const handleUpdate = async (oldData, newData, resolve) => {
     await updateDoc(doc(getFirestore(), "appointments", newData.id), {
@@ -85,30 +65,17 @@ const Appointment = () => {
     console.log("succesfully delete");
   };
 
-  // const AddAppointments = async () => {
-  //   const docRef = await addDoc(collection(getFirestore(), "appointments"), {
-  //     doctorId: 'Hx4hChiw1em6GWSU52P0',
-  //     patientId: '1',
-  //     payment:2900,
-  //   });
-  //   await setDoc(doc(getFirestore(), "appointments", docRef.id), {
-  //     appointmentId:docRef.id,
-  //     doctorId: '2',
-  //     patientId: '1',
-  //     payment:2900,
-  //   });
-
-  // };
-
-  
-
   return (
     <div>
       <div className="">
         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1
             className="h2"
-            style={{ fontFamily: "Trebuchet MS", fontSize: "30px" }}
+            style={{
+              fontFamily: "Trebuchet MS",
+              fontSize: "30px",
+              marginLeft: "10px",
+            }}
           >
             Appointment DashBoard
           </h1>
@@ -125,6 +92,7 @@ const Appointment = () => {
                 marginBottom: "50px",
                 paddingBottom: "30px",
                 marginLeft: "10px",
+                backgroundColor: "gray",
               }}
             >
               <div class="card l-bg-blue-dark border-0">
@@ -170,7 +138,11 @@ const Appointment = () => {
               Add: forwardRef((props, ref) => <FaPlus />),
             }}
             columns={[
-              { title: "appointmentId", field: "appointmentId" },
+              {
+                title: "appointmentId",
+                field: "appointmentId",
+                editable: "never",
+              },
               {
                 title: "date",
                 field: "date",
@@ -187,30 +159,33 @@ const Appointment = () => {
                 title: "payment",
                 field: "payment",
                 render: (rowData) => (
-                  <span className="">
-                    {rowData.payment}
-                    
+                  <span className="">{rowData.payment}</span>
+                ),
+              },
+              {
+                title: "Doctor's Name",
+                field: "doctorId",
+
+                sorting: false,
+
+                render: (rowData) => (
+                  <span>
+                    {console.log(rowData.doctorId)}
+                    {rowData.doctorId}
                   </span>
                 ),
               },
               {
-                title: "doctorName",
-                field: "doctorId",
-                editable: "never",
-                sorting: false,
-               
-                render: (rowData) => (<span>
-                  {setDoctorname(rowData.doctorId)}
-                  {doctorName}
-                </span>), 
-                  
-              },
-              {
-                title: "patientId",
+                title: "patient's Name",
                 field: "patientId",
-                editable: "never",
                 searchable: false,
                 sorting: false,
+                render: (rowData) => (
+                  <span>
+                    {rowData.patientId}
+                    {console.log(rowData.patientId)}
+                  </span>
+                ),
               },
               // {
               //   title: "Doğum Yeri",
@@ -223,9 +198,9 @@ const Appointment = () => {
               sorting: true,
               filtering: true,
               actionsColumnIndex: -1,
-              selection: true,
+              selection: false,
             }}
-            title="Demo Title"
+            title=""
             actions={[]}
             editable={{
               onRowUpdate: (newData, oldData) =>
