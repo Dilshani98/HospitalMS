@@ -7,7 +7,15 @@
 body{
   margin: 0;
   padding: 0;
+  background-image: url(/src/assets/img/background1.jpg);
+  background-size: cover;
+  background-color: #464646;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
 }
+
 
 .SideBar{
   height: 100%;
