@@ -76,7 +76,7 @@ const NewPatient = () => {
                 </div>
 
 
-                <button type="submit" class="btn btn-primary" onClick={createPatient}>Submit</button>
+                <button type="submit" class="btn btn-success" onClick={createPatient}>Submit</button> {""}
                 <NavLink to="/patients">
                     <button type="button" class="btn btn-secondary"> Go Back</button>
                 </NavLink>

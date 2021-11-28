@@ -13,6 +13,9 @@ import AddNurse from './Containers/NurseContainer/AddNurse';
 import Patients from './Containers/PatientsContainer/PatientsContainer'
 import NewPatient from './Components/PatientComponent/NewPatient'
 import AllPatient from './Components/PatientComponent/AllPatients'
+import Reports from './Containers/ReportsContainer/ReportsContainer';
+import NewReport from './Components/ReportComponent/NewReport';
+import FindReport from './Components/ReportComponent/FindReport';
 
 
 function App() {
@@ -36,6 +39,10 @@ function App() {
               <Route path="/patients" element={<Patients />} />
               <Route path="/new-patient" element={<NewPatient />} />
               <Route path="/all-patients" element={<AllPatient />} />
+
+              <Route path="/reports" element={<Reports />} />
+              <Route path="/new-report" element={<NewReport />} />
+              <Route path="/find-report" element={<FindReport />} />
 
               <Route path="/viewnurse" element={<ViewNurse />} />
               <Route path="/addnurse" element={<AddNurse />} />

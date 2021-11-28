@@ -32,6 +32,6 @@ export const MenuItem = [
   {
     title: "Reports",
     icon: <FontAwesomeIcon icon={faNotesMedical} />,
-    path: "/Reports"
+    path: "/reports"
   }
 ]
