@@ -2,90 +2,149 @@ import React, { useState, useEffect } from "react";
 import { forwardRef } from "react";
 import MaterialTable from "material-table";
 import {
-    FaCheck,
-    FaFileExport,
-    FaPlus,
-    FaRegTrashAlt,
-    FaSearch,
-    FaTimes,
-  } from "react-icons/fa";
-  
-  import {
-    BiChevronRight,
-    BiChevronsLeft,
-    BiEdit,
-    BiSortAlt2,
-  } from "react-icons/bi";
-  import { getFirestore } from "firebase/firestore";
-import firebase from "firebase/compat/app";
-import config from "../../Components/Config/Config";
-  import {
-    setDoc,
-    doc,
-    collection,
-    addDoc,
-    getDocs,
-    onSnapshot,
-    DocumentData,
-    deleteDoc,
-    updateDoc,
-  } from "firebase/firestore";
+  FaCheck,
+  FaFileExport,
+  FaPlus,
+  FaRegTrashAlt,
+  FaSearch,
+  FaTimes,
+} from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import {
+  BiChevronRight,
+  BiChevronsLeft,
+  BiEdit,
+  BiSortAlt2,
+} from "react-icons/bi";
 
- const Appointment=() =>{
+import {
+  doc,
+  collection,
+  getDoc,
+  onSnapshot,
+  deleteDoc,
+  updateDoc,
+  getFirestore,
+  query,
+  where
+} from "firebase/firestore";
 
+const Appointment = () => {
+  const [appointments, setAppointments] = useState([]);
+  const [doctorName, setDoctorname] = useState([]);
 
-    firebase.initializeApp(config);
+  useEffect(() => {
+    const data = () => {
 
-    const [appointments, setAppointments] = useState([]);
-  
-
-    useEffect(() => {
-        
-      const data = () => {
-        // const querySnapshot = await getDocs(collection(getFirestore(), "shops"));  // need to reload the page
-        // setShops(querySnapshot.docs.map((doc) => doc.data()));
-  
-        onSnapshot(collection(getFirestore(), "appointments"), (snapshot) => {
-          // realtime update
-          setAppointments(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        });
-      };
-      data();
-      console.log(appointments);
-      console.log((appointments.data.seconds * 1000).toLocaleDateString("en-US"))
-    }, []);
-
-
-
-    const handleUpdate = async (oldData, newData, resolve) => {
-        await updateDoc(doc(getFirestore(), "appointments", newData.id), {
-          
-          date: oldData.date,
-          doctorId: newData.doctorId,
-          patientId: newData.patientId,
-          payment:newData.payment,
-        });
-        resolve();
-        console.log(newData);
-      }
+      onSnapshot(collection(getFirestore(), "appointments"), (snapshot) => {
+        // realtime update
+        setAppointments(
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        );
+      });
+    };
+    data();
     
+  }, []);
 
-    return (
-        <div>
+  useEffect(() => {
+    getDoctorName();
+  })
+
+  const getDoctorName = async () => {
+    // const docRef = doc(getFirestore, "doctors", item);
+    // const docSnap = await getDoc(docRef);
+
+    // if (docSnap.exists()) {
+    //  setDoctorname(docSnap.data().firstName);
+    // } else {
+    //   // doc.data() will be undefined in this case
+    //   console.log("No such document!");
+    // }
+    console.log(doctorName)
+
+
+  };
+
+  const handleUpdate = async (oldData, newData, resolve) => {
+    await updateDoc(doc(getFirestore(), "appointments", newData.id), {
+      date: oldData.date,
+      doctorId: newData.doctorId,
+      patientId: newData.patientId,
+      payment: newData.payment,
+    });
+    resolve();
+    console.log(new Date(oldData.date.seconds * 1000));
+  };
+
+  const handleDelete = async (oldData, resolve) => {
+    console.log(oldData);
+    const docRef = doc(getFirestore(), "appointments", oldData.id);
+    await deleteDoc(docRef);
+    resolve();
+    console.log("succesfully delete");
+  };
+
+  // const AddAppointments = async () => {
+  //   const docRef = await addDoc(collection(getFirestore(), "appointments"), {
+  //     doctorId: 'Hx4hChiw1em6GWSU52P0',
+  //     patientId: '1',
+  //     payment:2900,
+  //   });
+  //   await setDoc(doc(getFirestore(), "appointments", docRef.id), {
+  //     appointmentId:docRef.id,
+  //     doctorId: '2',
+  //     patientId: '1',
+  //     payment:2900,
+  //   });
+
+  // };
+
+  
+
+  return (
+    <div>
       <div className="">
         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 className="h2">Appointments</h1>
+          <h1
+            className="h2"
+            style={{ fontFamily: "Trebuchet MS", fontSize: "30px" }}
+          >
+            Appointment DashBoard
+          </h1>
           <div className="btn-toolbar mb-2 mb-md-0"></div>
         </div>
 
         <div className="container-fluid mt-4">
-          {/* <button
-            type="button"
-            className="btn btn-dark"
-            onClick={() => alert("clickes")}
-          >
-            Dark
-          </button> */}
+          <NavLink className="card-nav" to="/CreateAppointment">
+            <div
+              className="addCard"
+              style={{
+                width: "210px",
+                height: "1px",
+                marginBottom: "50px",
+                paddingBottom: "30px",
+                marginLeft: "10px",
+              }}
+            >
+              <div class="card l-bg-blue-dark border-0">
+                <div class="card-statistic-3 p-1">
+                  <div class="mb-4">
+                    <h5
+                      class="card-title mb-0"
+                      style={{
+                        fontFamily: "Trebuchet MS",
+                        fontSize: "15px",
+                        padding: "10px",
+                      }}
+                    >
+                      Create New Appointment
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </NavLink>
 
           <MaterialTable
             icons={{
@@ -111,24 +170,40 @@ import config from "../../Components/Config/Config";
               Add: forwardRef((props, ref) => <FaPlus />),
             }}
             columns={[
-              { title: "appointmentId", field: "id" },
-              { title: "date", field: "date" ,
-              
-            },
-              { title: "payment", field: "payment" },
+              { title: "appointmentId", field: "appointmentId" },
               {
-                title: "doctorId",
+                title: "date",
+                field: "date",
+                render: (rowData) => (
+                  <span className="">
+                    {rowData.date}
+                    {/* {(new Date(rowData.date*1000).toUTCString())}
+                   {console.log(new Date(rowData.date*1000).toUTCString())} */}
+                    {/* {console.log(rowData.date)} */}
+                  </span>
+                ),
+              },
+              {
+                title: "payment",
+                field: "payment",
+                render: (rowData) => (
+                  <span className="">
+                    {rowData.payment}
+                    
+                  </span>
+                ),
+              },
+              {
+                title: "doctorName",
                 field: "doctorId",
                 editable: "never",
                 sorting: false,
-                // render: (rowData) => (
-                //   <span
-                //     className="badge rounded-pill"
-                //     style={{ backgroundColor: roleType(rowData.status) }}
-                //   >
-                //     {rowData.status}
-                //   </span>
-                // ),
+               
+                render: (rowData) => (<span>
+                  {setDoctorname(rowData.doctorId)}
+                  {doctorName}
+                </span>), 
+                  
               },
               {
                 title: "patientId",
@@ -136,22 +211,6 @@ import config from "../../Components/Config/Config";
                 editable: "never",
                 searchable: false,
                 sorting: false,
-                // render: (rowData) =>
-                //   rowData && (
-                //     <div
-                //       className="form-check form-switch"
-                //       style={{ margin: "auto" }}
-                //     >
-                //       <input
-                //         className="form-check-input"
-                //         type="checkbox"
-                //         role="switch"
-                //         id="flexSwitchCheckDefault"
-                //         checked={rowData.status == "active" ? true : false}
-                //         onChange={() => HandleBlocked(rowData)}
-                //       />
-                //     </div>
-                //   ),
               },
               // {
               //   title: "Doğum Yeri",
@@ -176,26 +235,18 @@ import config from "../../Components/Config/Config";
                   }, 1000);
                 }),
 
-            //   onRowDelete: (oldData) =>
-            //     new Promise((resolve) => {
-            //       setTimeout(() => {
-            //         handleDelete(oldData, resolve);
-            //       }, 1000);
-            //     }),
-
-            //   onRowAdd: (newData) =>
-            //     new Promise((resolve) => {
-            //       setTimeout(() => {
-            //         AddUser(newData, resolve);
-            //       }, 1000);
-            //     }),
+              onRowDelete: (oldData) =>
+                new Promise((resolve) => {
+                  setTimeout(() => {
+                    handleDelete(oldData, resolve);
+                  }, 1000);
+                }),
             }}
           />
         </div>
       </div>
     </div>
-    )
-}
-
+  );
+};
 
 export default Appointment;

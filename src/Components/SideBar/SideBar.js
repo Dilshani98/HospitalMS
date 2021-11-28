@@ -23,7 +23,7 @@ function SideBar() {
           return (
             <li
               key={key}
-              className="row"
+              className="rowItem"
             >
               <a className="nav-link" href={val.path}>
                 <div id="icon" >{val.icon}</div>
