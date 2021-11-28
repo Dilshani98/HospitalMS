@@ -77,7 +77,7 @@ const CreateRoomsContainer = () => {
 
     return (
         <>
-            <center><div className="room-ttl"><FaBed style={{marginRight:"20px"}}/>Rooms Details</div></center>
+            <center><div className="room-ttl"><FaBed style={{marginRight:"20px"}}/>Details of Rooms</div></center>
 
             <div className='row'>
                 <div className='col-md-6 col-sm-12' style={{ margin: "auto" }}>
