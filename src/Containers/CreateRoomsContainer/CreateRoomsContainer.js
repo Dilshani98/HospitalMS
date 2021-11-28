@@ -3,6 +3,7 @@ import './CreateRoomsContainer.css';
 import { doc, setDoc, addDoc, collection } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { Link, useNavigate } from 'react-router-dom';
+import { FaBed } from 'react-icons/fa';
 
 const CreateRoomsContainer = () => {
 
@@ -53,7 +54,7 @@ const CreateRoomsContainer = () => {
                 <div className='row'>
                     <div className='col-md-8 col-sm-12'>
                         <div className='title-c-s'>
-                            <span>Add a New Room</span>
+                            <span><FaBed style={{marginRight:"20px"}}/>Add a New Room</span>
                         </div>
                         <div className='des-c-s'>
                             <span>Hospital room design has a significant impact on patient care and recovery outcomes. Patients rely on staff to respond to emergency situations quickly, check in on them frequently, and ensure a full recovery.</span>
