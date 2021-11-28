@@ -12,6 +12,7 @@ const AddNurse = () => {
     const [address, setAddress] = useState("");
     const [grade, setGrade] = useState("");
     const [phoneNo, setPhoneNo] = useState("");
+    const [submitted, setsubmitted] = useState(false);
 
     const createNurse = async (e) => {
         e.preventDefault(); 
@@ -23,38 +24,39 @@ const AddNurse = () => {
           grade: grade,
           phoneNo: phoneNo
         });
+        setsubmitted(true);
       };
 
 
     return (
         <>
         <div className="container">
-            <h1 className="mt-3 mb-3">ADD NURSES TO YOUR SYSTEM</h1>
+            <h1 className="display-5 text-center">Add a New Nurse</h1>
             <form className="mt-5">
                 <div className="mb-3 text-align-left">
                     <label for="inputName" className="form-label">First Name</label>
-                        <input type="text" className="form-control" id="name" value={fname} onChange={(e) => {
+                        <input type="text" className="form-control" id="name" placeholder="First Name" value={fname} onChange={(e) => {
                             setFname(e.target.value);
                         }}/>
                 </div>
 
                 <div className="mb-3 text-align-left">
                     <label for="inputName" className="form-label">Last Name</label>
-                        <input type="text" className="form-control" id="name" value={lname} onChange={(e) => {
+                        <input type="text" className="form-control" id="name" placeholder="Last Name" value={lname} onChange={(e) => {
                             setLname(e.target.value);
                         }}/>
                 </div>
 
                 <div className="mb-3">
                     <label for="inputAddress" className="form-label">Address</label>
-                    <input type="text" className="form-control" id="address" value={address} onChange={(e) => {
+                    <input type="text" className="form-control" id="address" placeholder="Address" value={address} onChange={(e) => {
                             setAddress(e.target.value);
                         }}/>
                 </div>
 
                 <div className="mb-3">
                     <label for="inputPhoneNo" className="form-label">Phone Number</label>
-                    <input type="text" className="form-control" id="pno" value={phoneNo} onChange={(e) => {
+                    <input type="text" className="form-control" id="pno" placeholder="Phone Number" value={phoneNo} onChange={(e) => {
                             setPhoneNo(e.target.value);
                         }}/>
                 </div>
@@ -64,6 +66,7 @@ const AddNurse = () => {
                     <select id="disabledSelect" className="form-select" value={grade} onChange={(e) => {
                             setGrade(e.target.value);
                         }}>
+                        <option>Add Grade</option>
                         <option>Grade1</option>
                         <option>Grade2</option>
                         <option>Grade3</option>   
@@ -71,9 +74,11 @@ const AddNurse = () => {
                 </div>
                 
                 <button className="btn btn-success mb-3" onClick={createNurse}>Submit</button>
-                
-
             </form>
+            <br />
+            {(submitted) && <div class="alert alert-primary" role="alert">
+                The details of the doctor were added successfully!.
+            </div>}
         </div>
         </>
     )
